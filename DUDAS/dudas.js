@@ -27,55 +27,24 @@ carrito.push(producto);
 
 seguirComprando = confirm('¿Desea seguir comprando?');
     }while (seguirComprando);
-
-
-
+    return carrito;
 };
 
-
-return carrito;
-// function calcularPrecio(){
-//     let subtotal = 0;
-// for (let item of carrito){
-//     switch(item){
-//         case "fideos":
-//            precioProd= 200;
-//            break;
-//        case "salsa":
-//            precioProd = 280;
-//            break;    
-//        case "queso":
-//            precioProd = 150;    
-//            break;
-//        case "combo", "combo de los tres","los 3", "3":
-//            precioProd = 500;
-//            break;
-//        default:("Alguno de los datos ingresados no es correcto")
-//            precioProd = 0,
-//            cantidad = 0;
-//            break;
-//        }
-// subtotal = subtotal + precioProd;
-// }
-// return subtotal;
-// }
-
-// function calcularPrecio(){
-//     let subtotal = 0;
-// for (let item of carrito){
-//     if (item === "fideos"){
-//         subtotal = subtotal + 200;}
-//         else if (item === "salsa"){
-//             subtotal = subtotal +300;
-//         }else if (item === "queso"){
-//             subtotal = subtotal+150;
-//             }else{
-//                 subtotal = subtotal + 500;
-//             }
-// return subtotal;
-// }
-// }
-
+function calcularPrecio(){
+    let subtotal = 0;
+for (let item of carrito){
+    if (item === "fideos"){
+        subtotal = subtotal + 200;}
+        else if (item === "salsa"){
+            subtotal = subtotal +300;
+        }else if (item === "queso"){
+            subtotal = subtotal+150;
+            }else{
+                subtotal = subtotal + 500;
+            }
+return subtotal;
+}
+}
 agregarProducto();
-// calcularPrecio();
-// alert("El total de su compra es  " + subtotal);
+calcularPrecio();
+alert("El total de su compra es  " + subtotal);
