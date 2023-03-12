@@ -49,4 +49,3 @@ switch(producto){
 }
 
 agregarProducto();
-;
