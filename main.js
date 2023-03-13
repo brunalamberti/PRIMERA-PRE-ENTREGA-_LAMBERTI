@@ -46,6 +46,7 @@ switch(producto){
  seguirComprando = confirm('¿Desea seguir comprando?');
     } while (seguirComprando);
     alert("El total de su compra es de $"+subtotal + ". Muchas gracias por su compra.")
+    return subtotal;
 }
 
 agregarProducto();
