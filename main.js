@@ -12,19 +12,13 @@ const agregarProducto = () =>{
 do {
 producto = prompt("¿Desea comprar fideos, salsa o queso, o un combo de los tres?").toLowerCase();
 
-while ((producto !== "fideos") && (producto !== "salsa") && (producto !== "queso") && (producto !== "combo") &&
-(producto !== "combo de los tres") && (producto !== "los 3") && (producto !== "3")){
-     alert("El producto elegido no se encuentra disponible actualmente.");
-     producto = prompt("¿Desea comprar fideos, salsa o queso, o un combo de los tres?").toLowerCase();
-}
+let productoValidado = validarProds(producto);
+
 cant = parseInt(prompt("¿Cuántos quiere llevar?"));
 
-while (Number.isNaN(cant) || cant === 0){
-alert("Debe seleccionar una cantidad válida.")
-cant = parseInt(prompt("¿Cuántos quiere llevar?"));
-    }
+let cantValidada = validarCant(cant);
 
-switch(producto){
+switch(productoValidado){
         case "fideos":
                    precioProd= 200;
                    break;
@@ -42,11 +36,26 @@ switch(producto){
                    cantidad = 0;
                    break;
                }
-    subtotal += precioProd * cant;
+    subtotal += precioProd * cantValidada;
  seguirComprando = confirm('¿Desea seguir comprando?');
     } while (seguirComprando);
     alert("El total de su compra es de $"+subtotal + ". Muchas gracias por su compra.")
     return subtotal;
 }
+
+function validarProds(producto) {
+    while ((producto !== "fideos") && (producto !== "salsa") && (producto !== "queso") && (producto !== "combo") &&
+(producto !== "combo de los tres") && (producto !== "los 3") && (producto !== "3")){
+     alert("El producto elegido no se encuentra disponible actualmente.");
+     producto = prompt("¿Desea comprar fideos, salsa o queso, o un combo de los tres?").toLowerCase();
+    }
+    return producto;
+}
+function validarCant(cant){while (Number.isNaN(cant) || cant === 0){
+    alert("Debe seleccionar una cantidad válida.")
+    cant = parseInt(prompt("¿Cuántos quiere llevar?"));
+          }
+          return cant;
+    }
 
 agregarProducto();
